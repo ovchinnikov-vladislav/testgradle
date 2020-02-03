@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.11'
+}
+
+task sendTask(type: org.gradle.SendMailTypeTask, dependsOn: check) {
+    to = 'ovchinnikovasv73@gmail.com'
+}
+
+build.dependsOn.add('sendTask')
